@@ -8,18 +8,6 @@ import { Input } from "@c/ui/input";
 export default function Home() {
   return (
     <>
-      <header className="sticky top-0 flex items-center h-16 bg-background shadow">
-        <Container className="grid grid-cols-3 items-center">
-          <span className="font-semibold text-2xl">Logo</span>
-          <nav className="flex items-center gap-4 mx-auto">
-            <Link href="/ui">UI Defaults</Link>
-            <Link href="/">Link</Link>
-            <Link href="/">Link</Link>
-            <Link href="/">Link</Link>{" "}
-          </nav>
-          <Button className="ml-auto">Secondary</Button>
-        </Container>
-      </header>
       <main>
         <Section>
           <Container className="flex flex-col lg:flex-row items-center justify-between gap-10">
