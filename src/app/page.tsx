@@ -12,7 +12,7 @@ export default function Home() {
         <Container className="grid grid-cols-3 items-center">
           <span className="font-semibold text-2xl">Logo</span>
           <nav className="flex items-center gap-4 mx-auto">
-            <Link href="/">Link</Link>
+            <Link href="/ui">UI Defaults</Link>
             <Link href="/">Link</Link>
             <Link href="/">Link</Link>
             <Link href="/">Link</Link>{" "}
@@ -22,12 +22,10 @@ export default function Home() {
       </header>
       <main>
         <Section>
-          <Container className="flex items-center justify-between flex-wrap">
+          <Container className="flex flex-col lg:flex-row items-center justify-between gap-10">
             <div>
-              <h1 className="text-[84px] leading-[84px] -tracking-[2px] font-bold mb-default">
-                Hero. Section.
-              </h1>
-              <p className="max-w-lg mb-related text-muted-foreground">
+              <h1 className="">star wars</h1>
+              <p className="mb-lg">
                 Striking from a fortress hidden among the billion stars of the
                 galaxy, rebel spaceships have won their first victory in a
                 battle with the powerful Imperial Starfleet. The EMPIRE fears
@@ -42,42 +40,38 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <div className="grid place-content-center aspect-video w-sm rounded-lg bg-neutral-900 text-3xl text-white">
+            <div className="grid place-content-center aspect-video w-full lg:max-w-sm rounded-lg bg-neutral-900 text-3xl text-white">
               Image
             </div>
           </Container>
         </Section>
-        <Section className="">
+        <Section className="bg-neutral-100">
           <Container>
-            <h2 className="text-[64px] font-bold leading-[64px] -tracking-[1.5px] mb-default">
-              Services
-            </h2>
-            <p className="max-w-lg text-muted-foreground mb-related">
+            <h2 className="">Services</h2>
+            <p className="mb-lg">
               Striking from a fortress hidden among the billion stars of the
               galaxy, rebel spaceships have won their first victory in a battle
               with the powerful Imperial Starfleet.
             </p>
-            <div className="grid grid-cols-4 gap-4 min-h-[300px]">
-              <div className="bg-neutral-100 rounded-lg shadow" />
-              <div className="bg-neutral-100 rounded-lg shadow" />
-              <div className="bg-neutral-100 rounded-lg shadow" />
-              <div className="bg-neutral-100 rounded-lg shadow" />
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 min-h-[600px] lg:min-h-[300px]">
+              <div className="bg-background rounded-lg shadow" />
+              <div className="bg-background rounded-lg shadow" />
+              <div className="bg-background rounded-lg shadow" />
+              <div className="bg-background rounded-lg shadow" />
             </div>
           </Container>
         </Section>
         <Section>
           <Container>
-            <h2 className="text-[64px] font-bold leading-[64px] -tracking-[1.5px] mb-default">
-              Contact
-            </h2>
-            <p className="max-w-lg text-muted-foreground mb-related">
+            <h2 className="">Contact</h2>
+            <p className="mb-lg">
               Striking from a fortress hidden among the billion stars of the
               galaxy, rebel spaceships have won their first victory in a battle
               with the powerful Imperial Starfleet.
             </p>
             <form
               method="POST"
-              className="max-w-md grid gap-4 p-4 rounded-lg shadow"
+              className="w-full lg:max-w-text grid gap-4 p-4 border rounded-lg shadow"
             >
               <div className="flex flex-col gap-1">
                 <Label htmlFor="">Name</Label>
