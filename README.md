@@ -7,7 +7,7 @@ This is a minimal starter template built with Next.js, providing a solid foundat
 ### Styling
 
 - **Tailwind CSS v4:** The primary utility-first CSS framework for rapid UI development.
-- **Font System:** Utilizes the **Roboto font family** (Roboto, Roboto Serif, Roboto Mono) for a consistent typographic experience.
+- **Font System:** Utilizes the **Roboto font family** (Roboto, Roboto Serif, Roboto Mono) for a consistent typographic experience. **For improved readability with the Roboto family, the default line height for `p` tags has been increased to 200%.**
 - **Responsive Typography:** A base typographical system is managed by the CSS variable `--text-scale`. It's currently set to a `major-third (1.333)` for harmonious heading and text sizing. Other predefined scales include `minor second (1.2)`, `major second (1.25)`, `perfect fourth (1.5)`, and the `golden ratio (1.618)`. Scales larger than a major third might require adjusting from a 6-header to a 4-header system for optimal display.
 
 ### Database
