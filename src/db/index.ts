@@ -10,7 +10,9 @@ switch (env.NODE_ENV) {
   }
   case "production": {
     if (!env.DB_HOST) {
-      throw new Error("DB: Host not defined in environment variables.");
+      throw new Error(
+        "DB: Host not defined in environment variables.",
+      );
     }
     dbHost = env.DB_HOST;
     break;

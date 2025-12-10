@@ -68,7 +68,11 @@ async function generateFeatureStructure() {
         content: "// Feature-specific utilities",
       },
       {
-        path: path.join(featureDir, "stores", `${featureName}-store.ts`),
+        path: path.join(
+          featureDir,
+          "stores",
+          `${featureName}-store.ts`,
+        ),
         content: `// Zustand store ${featureName}`,
       },
     ];
@@ -85,7 +89,9 @@ async function generateFeatureStructure() {
       console.log(`Created file: ${file.path}`);
     }
 
-    console.log(`\nFeature '${featureName}' structure generated successfully!`);
+    console.log(
+      `\nFeature '${featureName}' structure generated successfully!`,
+    );
   } catch (error) {
     console.error("Error generating feature structure:", error);
     process.exit(1);

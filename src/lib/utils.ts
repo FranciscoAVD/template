@@ -9,7 +9,9 @@ type TryCatchResult_T<T> =
   | { data: T; error: null }
   | { data: null; error: Error };
 
-async function tryCatch<T>(fn: Promise<T>): Promise<TryCatchResult_T<T>> {
+async function tryCatch<T>(
+  fn: Promise<T>,
+): Promise<TryCatchResult_T<T>> {
   try {
     const res = await fn;
     return { data: res, error: null };

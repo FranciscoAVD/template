@@ -1,6 +1,9 @@
 import { cn } from "@/lib/utils";
 
-function LoadingSpinner({ className, ...props }: React.ComponentProps<"div">) {
+function LoadingSpinner({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       className={cn(

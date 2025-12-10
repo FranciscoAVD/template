@@ -6,7 +6,10 @@ function Section({
   ...props
 }: React.ComponentProps<"section">) {
   return (
-    <section {...props} className={cn(`pt-[48px] pb-[96px] ${className}`)}>
+    <section
+      {...props}
+      className={cn(`pt-[48px] pb-[96px] ${className}`)}
+    >
       {children}
     </section>
   );

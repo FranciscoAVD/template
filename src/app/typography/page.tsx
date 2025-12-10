@@ -13,9 +13,10 @@ export default function UIPage() {
           <h5>This is a</h5>
           <h6>major 3rd.</h6>
           <p>
-            Paragraphs have 200% line height and are justified. They also have a
-            max text width set by a CSS variable <code>--max-text-width</code>.
-            This max width also applies to headers for alignment purposes.
+            Paragraphs have 200% line height and are justified. They
+            also have a max text width set by a CSS variable{" "}
+            <code>--max-text-width</code>. This max width also applies
+            to headers for alignment purposes.
           </p>
         </Container>
       </Section>

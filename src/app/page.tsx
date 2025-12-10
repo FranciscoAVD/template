@@ -14,16 +14,20 @@ export default function Home() {
             <div>
               <h1 className="">star wars</h1>
               <p className="mb-lg">
-                Striking from a fortress hidden among the billion stars of the
-                galaxy, rebel spaceships have won their first victory in a
-                battle with the powerful Imperial Starfleet. The EMPIRE fears
-                that another defeat could bring a thousand more solar systems
-                into the rebellion, and Imperial control over the galaxy would
+                Striking from a fortress hidden among the billion
+                stars of the galaxy, rebel spaceships have won their
+                first victory in a battle with the powerful Imperial
+                Starfleet. The EMPIRE fears that another defeat could
+                bring a thousand more solar systems into the
+                rebellion, and Imperial control over the galaxy would
                 be lost forever.
               </p>
               <div className="flex gap-4">
                 <Button className="min-w-[120px]">CTA</Button>
-                <Button variant="secondary" className="min-w-[120px]">
+                <Button
+                  variant="secondary"
+                  className="min-w-[120px]"
+                >
                   Secondary
                 </Button>
               </div>
@@ -37,9 +41,10 @@ export default function Home() {
           <Container>
             <h2 className="">Services</h2>
             <p className="mb-lg">
-              Striking from a fortress hidden among the billion stars of the
-              galaxy, rebel spaceships have won their first victory in a battle
-              with the powerful Imperial Starfleet.
+              Striking from a fortress hidden among the billion stars
+              of the galaxy, rebel spaceships have won their first
+              victory in a battle with the powerful Imperial
+              Starfleet.
             </p>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 min-h-[600px] lg:min-h-[300px]">
               <div className="bg-background rounded-lg shadow" />
@@ -53,9 +58,10 @@ export default function Home() {
           <Container>
             <h2 className="">Contact</h2>
             <p className="mb-lg">
-              Striking from a fortress hidden among the billion stars of the
-              galaxy, rebel spaceships have won their first victory in a battle
-              with the powerful Imperial Starfleet.
+              Striking from a fortress hidden among the billion stars
+              of the galaxy, rebel spaceships have won their first
+              victory in a battle with the powerful Imperial
+              Starfleet.
             </p>
             <form
               method="POST"
