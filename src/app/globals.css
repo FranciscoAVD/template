@@ -5,6 +5,12 @@
 
 @theme inline {
   /*Custom*/
+  --text-h1: calc(var(--text-base) * var(--text-pow6));
+  --text-h2: calc(var(--text-base) * var(--text-pow5));
+  --text-h3: calc(var(--text-base) * var(--text-pow4));
+  --text-h4: calc(var(--text-base) * var(--text-pow3));
+  --text-h5: calc(var(--text-base) * var(--text-pow2));
+  --text-h6: calc(var(--text-base) * var(--text-pow1));
   --max-width-text: var(--max-text-width);
   --margin-base: var(--space);
   --margin-lg: calc(var(--space) * 2);
@@ -145,26 +151,26 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-foreground font-body text-base;
   }
 
   h1 {
-    font-size: calc(var(--text-base) * var(--text-pow6));
+    @apply text-h1;
   }
   h2 {
-    font-size: calc(var(--text-base) * var(--text-pow5));
+    @apply text-h2;
   }
   h3 {
-    font-size: calc(var(--text-base) * var(--text-pow4));
+    @apply text-h3;
   }
   h4 {
-    font-size: calc(var(--text-base) * var(--text-pow3));
+    @apply text-h4;
   }
   h5 {
-    font-size: calc(var(--text-base) * var(--text-pow2));
+    @apply text-h5;
   }
   h6 {
-    font-size: calc(var(--text-base) * var(--text-pow1));
+    @apply text-h6;
   }
 
   h1,
@@ -173,7 +179,7 @@
   h4,
   h5,
   h6 {
-    @apply max-w-text leading-[100%] tracking-[-2px] font-semibold mb-base font-display capitalize;
+    @apply max-w-text leading-[100%] tracking-[-1px] font-semibold mb-base font-display capitalize;
   }
 
   p {
