@@ -2,10 +2,6 @@ import type { Metadata } from "next";
 import { Roboto, Roboto_Serif, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
-import Link from "next/link";
-import { Container } from "@c/container";
-import { Button } from "@c/ui/button";
-
 const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
@@ -36,16 +32,6 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${robotoSerif.variable} ${robotoMono.variable} antialiased`}
       >
-        <header className="sticky top-0 flex items-center h-16 bg-background shadow">
-          <Container className="grid grid-cols-3 items-center">
-            <span className="font-semibold text-2xl">Logo</span>
-            <nav className="flex items-center gap-4 mx-auto">
-              <Link href="/">Home</Link>
-              <Link href="/typography">Typography</Link>
-            </nav>
-            <Button className="ml-auto">Secondary</Button>
-          </Container>
-        </header>{" "}
         {children}
       </body>
     </html>

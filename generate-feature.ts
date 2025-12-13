@@ -1,7 +1,3 @@
-/*
-
-*/
-
 import { mkdir, writeFile } from "fs/promises";
 import { existsSync } from "fs";
 import path from "path";
@@ -65,6 +61,10 @@ async function generateFeatureStructure() {
       },
       {
         path: path.join(featureDir, "lib", "utils.ts"),
+        content: "// Feature-specific utilities",
+      },
+      {
+        path: path.join(featureDir, "lib", "hooks.ts"),
         content: "// Feature-specific utilities",
       },
       {
