@@ -17,7 +17,7 @@ export default function Home() {
             <Link href="/">Home</Link>
             <Link href="/typography">Typography</Link>
           </nav>
-          <Button className="ml-auto">Secondary</Button>
+          <Button className="ml-auto">CTA</Button>
         </Container>
       </header>{" "}
       <main></main>
