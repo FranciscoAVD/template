@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto, Roboto_Serif, Roboto_Mono } from "next/font/google";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { TanstackQueryProvider } from "@c/providers/tanstackquery-provider";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -32,7 +34,9 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${robotoSerif.variable} ${robotoMono.variable} antialiased`}
       >
-        {children}
+        <TanstackQueryProvider>
+          <NuqsAdapter>{children}</NuqsAdapter>
+        </TanstackQueryProvider>
       </body>
     </html>
   );

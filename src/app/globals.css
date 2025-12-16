@@ -182,7 +182,7 @@
     @apply max-w-text leading-[100%] tracking-[-1px] font-semibold mb-base font-display capitalize;
   }
 
-  p {
+  p[data-role="paragraph"] {
     @apply max-w-text text-justify leading-[200%];
   }
 }
