@@ -1,27 +1,13 @@
 import { drizzle } from "drizzle-orm/node-postgres";
 import { env } from "@/env";
 
-let dbHost: string | undefined;
-
-switch (env.NODE_ENV) {
-  case "development": {
-    dbHost = "localhost";
-    break;
-  }
-  case "production": {
-    if (!env.DB_HOST) {
-      throw new Error(
-        "DB: Host not defined in environment variables.",
-      );
-    }
-    dbHost = env.DB_HOST;
-    break;
-  }
+if (env.NODE_ENV === "production" && env.DB_HOST === "localhost") {
+  throw new Error("DB: Host set to 'localhost'.");
 }
 
 //postgresql://[user[:password]@]host[:port][/database][?parameter1=value1&parameter2=value2]
 const dbURL =
-  `postgresql://${env.DB_USERNAME}:${env.DB_PASSWORD}@${dbHost}:${env.DB_PORT}/${env.DB_NAME}` as const;
+  `postgresql://${env.DB_USERNAME}:${env.DB_PASSWORD}@${env.DB_HOST}:${env.DB_PORT}/${env.DB_NAME}` as const;
 
 const database = drizzle(dbURL);
 
