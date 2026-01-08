@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto, Roboto_Serif, Roboto_Mono } from "next/font/google";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { TanstackQueryProvider } from "@c/providers/tanstackquery-provider";
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -30,14 +31,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${roboto.variable} ${robotoSerif.variable} ${robotoMono.variable} antialiased`}
-      >
-        <TanstackQueryProvider>
-          <NuqsAdapter>{children}</NuqsAdapter>
-        </TanstackQueryProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${roboto.variable} ${robotoSerif.variable} ${robotoMono.variable} antialiased`}
+        >
+          <TanstackQueryProvider>
+            <NuqsAdapter>{children}</NuqsAdapter>
+          </TanstackQueryProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
