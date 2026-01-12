@@ -18,7 +18,9 @@ const env = createEnv({
         error: "REDIS: Invalid port.",
       }),
     REDIS_PASSWORD: z.string().min(1, "REDIS: Password required."),
-    DEFAULT_REDIS_TTL: z.coerce.number().default(3600),
+    DEFAULT_REDIS_TTL: z.coerce.number(),
+    STRIPE_TEST_KEY: z.string(),
+    STRIPE_SECRET_KEY: z.string(),
   },
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
@@ -31,6 +33,8 @@ const env = createEnv({
     REDIS_PORT: process.env.REDIS_PORT,
     REDIS_PASSWORD: process.env.REDIS_PASSWORD,
     DEFAULT_REDIS_TTL: process.env.DEFAULT_REDIS_TTL,
+    STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
+    STRIPE_TEST_KEY: process.env.STRIPE_TEST_KEY,
   },
   emptyStringAsUndefined: true,
 });

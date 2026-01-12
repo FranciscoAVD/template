@@ -41,45 +41,55 @@ type ResponseOptions = {
  *
  * @param {HTTPResponse} type - The type of HTTP response, which maps to
  * a specific HTTP status code.
- * @param {ResponseOptions} options - An object containing optional data,
- *  messages, or errors to include in the response body.
+ * @param {ResponseOptions} [options={}] - An object containing optional data,
+ * messages, or errors to include in the response body.
  * @param {any} [options.data] - The main data payload of the response.
  * @param {string} [options.message] - A human-readable message
  * describing the response.
  * @param {{ [key: string]: string[] }} [options.errors] - An object
  * where keys represent fields or categories of errors, and values are
  * arrays of strings describing the error messages for that field.
- * @returns {NextResponse<ResponseOptions>} A `NextResponse` object with
- * the specified status code and body.
+ * @returns {NextResponse} A `NextResponse` object with the specified
+ * status code and body. If the type is "SUCCESS_NO_CONTENT", the body will
+ * be null.
  * @example
  * // Example of a successful response with data
  * const successResponse = apiResponse("SUCCESS", {
  *   data: { userId: "123", username: "john_doe" },
  *   message: "User data retrieved successfully."
  * });
- * // Resulting NextResponse will have status 200 and a body like:
- * // {
- * //   "data": {
- * //            "userId": "123",
- * //            "username": "john_doe"
- * //           },
- * //   "message": "User data retrieved successfully."
- * // }
+ *
+ * // Example of a 204 No Content response
+ * const noContentResponse = apiResponse("SUCCESS_NO_CONTENT");
+ *
+ * // Example of a server error with a default message
+ * const errorResponse = apiResponse("SERVER_ERROR");
  */
 function apiResponse(
   type: HTTPResponse,
-  options: ResponseOptions,
+  options?: ResponseOptions,
 ): NextResponse<ResponseOptions> {
-  const { data, errors, message } = options;
+  const status = HTTP_RESPONSE[type];
 
-  const body = {
-    ...(data !== undefined && { data }),
-    ...(errors !== undefined && { errors }),
-    ...(message !== undefined && { message }),
-  };
+  if (type === "SUCCESS_NO_CONTENT") {
+    return new NextResponse(null, { status });
+  }
 
+  let body: Record<string, any> = {};
+
+  if (type === "SERVER_ERROR") {
+    body = {
+      message:
+        options?.message ?? "Something went wrong. Try again later.",
+    };
+  } else {
+    if (options?.data !== undefined) body.data = options.data;
+    if (options?.errors !== undefined) body.errors = options.errors;
+    if (options?.message !== undefined)
+      body.message = options.message;
+  }
   return NextResponse.json(body, {
-    status: HTTP_RESPONSE[type],
+    status,
   });
 }
 

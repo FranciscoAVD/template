@@ -1,4 +1,4 @@
-//IMPORTANT: Filename is proxy.ts from Next 16
+//IMPORTANT: Filename is proxy.ts from Next 16 onwards
 
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
