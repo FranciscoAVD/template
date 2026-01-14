@@ -16,7 +16,7 @@ async function addPrice(
         Amount: ${data.unit_amount ?? "NOT PROVIDED"}`,
       );
     } else {
-      // Loggin solution for prod
+      // Logging solution for prod
     }
 
     return null;

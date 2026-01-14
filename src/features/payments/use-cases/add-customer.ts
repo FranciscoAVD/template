@@ -8,7 +8,7 @@ import { env } from "@/env";
 
 async function addCustomer(
   data: Stripe.CustomerCreateParams,
-): Promise<Stripe.Response<Stripe.Customer> | null> {
+): Promise<Stripe.Customer["id"] | null> {
   const res = await tryCatch(stripe.customers.create(data));
 
   if (res.error !== null) {
@@ -27,8 +27,7 @@ async function addCustomer(
 
     return null;
   }
-
-  return res.data;
+  return res.data.id;
 }
 
 export { addCustomer };
