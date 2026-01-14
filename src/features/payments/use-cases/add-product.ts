@@ -5,7 +5,7 @@ import { env } from "@/env";
 
 async function addProduct(
   data: Stripe.ProductCreateParams,
-): Promise<Stripe.Response<Stripe.Product> | null> {
+): Promise<Stripe.Product["id"] | null> {
   const res = await tryCatch(stripe.products.create(data));
 
   if (res.error !== null) {
@@ -22,7 +22,7 @@ async function addProduct(
     return null;
   }
 
-  return res.data;
+  return res.data.id;
 }
 
 export { addProduct };
