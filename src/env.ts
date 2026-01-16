@@ -21,6 +21,10 @@ const env = createEnv({
     DEFAULT_REDIS_TTL: z.coerce.number(),
     STRIPE_TEST_KEY: z.string(),
     STRIPE_SECRET_KEY: z.string(),
+    CLERK_SECRET_KEY: z.string(),
+  },
+  shared: {
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string(),
   },
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
@@ -35,6 +39,9 @@ const env = createEnv({
     DEFAULT_REDIS_TTL: process.env.DEFAULT_REDIS_TTL,
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
     STRIPE_TEST_KEY: process.env.STRIPE_TEST_KEY,
+    CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:
+      process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
   },
   emptyStringAsUndefined: true,
 });
