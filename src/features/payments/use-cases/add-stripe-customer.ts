@@ -6,7 +6,7 @@ import type { Stripe } from "stripe";
 import { tryCatch } from "@/lib/utils";
 import { env } from "@/env";
 
-async function addCustomer(
+async function addStripeCustomer(
   data: Stripe.CustomerCreateParams,
 ): Promise<Stripe.Customer["id"] | null> {
   const res = await tryCatch(stripe.customers.create(data));
@@ -30,4 +30,4 @@ async function addCustomer(
   return res.data.id;
 }
 
-export { addCustomer };
+export { addStripeCustomer };

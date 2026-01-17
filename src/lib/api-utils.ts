@@ -31,7 +31,7 @@ const HTTP_RESPONSE: Record<HTTPResponse, number> = {
 type ResponseOptions = {
   data?: any;
   message?: string;
-  errors?: { [key: string]: string[] };
+  errors?: { [key: string]: { errors: string[] } };
 };
 
 /**

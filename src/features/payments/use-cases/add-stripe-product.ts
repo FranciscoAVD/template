@@ -3,7 +3,7 @@ import type { Stripe } from "stripe";
 import { tryCatch } from "@/lib/utils";
 import { env } from "@/env";
 
-async function addProduct(
+async function addStripeProduct(
   data: Stripe.ProductCreateParams,
 ): Promise<Stripe.Product["id"] | null> {
   const res = await tryCatch(stripe.products.create(data));
@@ -25,4 +25,4 @@ async function addProduct(
   return res.data.id;
 }
 
-export { addProduct };
+export { addStripeProduct };
