@@ -1,21 +1,38 @@
+import { stripe } from "@/features/payments";
+import { ALLOWED_STRIPE_EVENTS } from "@/features/payments/lib/constants";
 import { apiResponse } from "@/lib/api-utils";
+import { tryCatch } from "@/lib/utils";
 import type { NextRequest } from "next/server";
+import type { Stripe } from "stripe";
+const ENDPOINT_SECRET = "webhook_secret" as const;
 
+async function processEvent(event: Stripe.Event) {
+  if (!ALLOWED_STRIPE_EVENTS.includes(event.type)) return;
+}
 async function POST(req: NextRequest) {
-  /*
-- Verify Signature: Reject immediately if invalid (400).
-- Filter Events: Ignore irrelevant events (200).
-- Idempotency Check:
-	- Check Redis for Event ID.
-	- If "Processing" or "Completed," return 200.
-	- Else, set status to "Processing" with an expiry (e.g., 5 minutes).
-- Database Transaction:
-	- Update user records.
-	- If failure: Delete Redis key (or set to "Failed") and return 500.
-- Finalize Cache: Set Redis key to "Completed" with a
-	longer TTL.
+  const signature = req.headers.get("Stripe-Signature") as string;
+  if (!signature)
+    return apiResponse("BAD_REQUEST", {
+      message: "No signature.",
+    });
 
-- Return 200.
-*/
+  let event: Stripe.Event;
+  try {
+    event = stripe.webhooks.constructEvent(
+      await req.text(),
+      signature,
+      ENDPOINT_SECRET,
+    );
+  } catch (err) {
+    return apiResponse("BAD_REQUEST", {
+      message: "Signature verification failed.",
+    });
+  }
+  // No await. Don't want to block the response
+  // waiting for processing.
+  processEvent(event);
+
   return apiResponse("SUCCESS_NO_CONTENT");
 }
+
+export { POST };
